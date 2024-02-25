@@ -17,7 +17,7 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchUpcomingMovie(page: Int) async throws -> [NovelList] {
+    func fetchNovel(page: Int) async throws -> [NovelList] {
         
         guard let url = URL(string: "https://www.dek-d.com/api/rest/open/quiz/novel/list?page=\(page)") else {
             throw APError.invalidURL
@@ -37,6 +37,31 @@ final class NetworkManager {
 
             let novel = try decoder.decode(NovelResponse.self, from: data)
             return novel.list
+        } catch {
+            print(error.localizedDescription)
+            throw APError.invalidData
+        }
+    }
+    
+    func fetchBanner() async throws -> [Banner] {
+        
+        guard let url = URL(string: "https://www.dek-d.com/api/rest/campaign/list") else {
+            throw APError.invalidURL
+        }
+        
+        let request = URLRequest(url: url)
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            let decoder = JSONDecoder()
+//            if let rawDataString = String(data: data, encoding: .utf8) {
+//                        print("Raw Data:\n\(rawDataString)")
+//                    } else {
+//                        print("Raw data could not be converted to a UTF-8 string")
+//                    }
+
+            let banner = try decoder.decode(BannerResponse.self, from: data)
+            return banner.list
         } catch {
             print(error.localizedDescription)
             throw APError.invalidData

@@ -11,12 +11,24 @@ import SwiftUI
     
     @Published var novels: [NovelList] = []
     @Published var alertItem: AlertItem?
+    @Published var banner: [Banner] = []
     
     func getNovel(page: Int) {
         Task {
             do {
-                novels.append(contentsOf: try await NetworkManager.shared.fetchUpcomingMovie(page: page))
+                novels.append(contentsOf: try await NetworkManager.shared.fetchNovel(page: page))
             } catch {
+                alertItem = AlertContext.GeneralError
+            }
+        }
+    }
+    
+    func getBanner() {
+        Task {
+            do {
+                banner = try await NetworkManager.shared.fetchBanner()
+            } catch {
+                print(error.localizedDescription)
                 alertItem = AlertContext.GeneralError
             }
         }

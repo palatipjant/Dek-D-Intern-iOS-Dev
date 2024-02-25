@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     
+    @EnvironmentObject var viewModel: NovelsListViewModel
     var novel: NovelList
     var indic: Int
     

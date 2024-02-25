@@ -9,8 +9,9 @@ import SwiftUI
 
 struct NovelsListView: View{
     
-    @StateObject var viewModel = NovelsListViewModel()
+    @EnvironmentObject var viewModel: NovelsListViewModel
     @State var visibleNovel: Set<Int> = Set()
+    @State private var currentIndex = 0
     
     var body: some View{
         ScrollViewReader { proxy in
@@ -30,6 +31,9 @@ struct NovelsListView: View{
                                     .onDisappear{
                                         visibleNovel.remove(i)
                                     }
+                                if i == 2{
+                                    BannerView()
+                                }
                             }
                         }
                         .padding(.top, 20)
@@ -67,11 +71,13 @@ struct NovelsListView: View{
             }
         }
         .task {
+            viewModel.getBanner()
             viewModel.getNovel(page: 1)
             viewModel.getNovel(page: 2)
             viewModel.getNovel(page: 3)
             viewModel.getNovel(page: 4)
             viewModel.getNovel(page: 5)
+            
         }
     }
 }
