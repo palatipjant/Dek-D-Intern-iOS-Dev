@@ -13,29 +13,39 @@ struct BannerView: View {
     @State var currentIndex = 0
     
     var body: some View {
-        TabView(selection: $currentIndex) {
-            ForEach(0..<viewModel.banner.count, id: \.self) { index in
-                MovieRemoteImage(urlString: viewModel.banner[currentIndex].payload?.imageUrl?.mobile ?? "place-holder")
-                    .scaledToFill()
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .padding(.horizontal, 12)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            TabView(selection: $currentIndex) {
+                ForEach(0..<viewModel.banner.count, id: \.self) { index in
+                    MovieRemoteImage(urlString: viewModel.banner[currentIndex].payload?.imageUrl?.mobile ?? "place-holder")
+                        .scaledToFill()
+                }
             }
-        }
-        .frame(maxWidth: .infinity, minHeight: 178)
-        .tabViewStyle(PageTabViewStyle())
-        .onAppear{
-            Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { timer in
-                currentIndex = (currentIndex + 1) % viewModel.banner.count
+            .modifier(bannermodi(currentIndex: $currentIndex, banner_count: viewModel.banner.count))
+            HStack{
+                ForEach(0..<viewModel.banner.count) { index in
+                    Circle()
+                        .fill(self.currentIndex == index ? Color("main") : .gray)
+                        .frame(width: 10, height: 10)
+                }
             }
-        }
-        HStack{
-            ForEach(0..<viewModel.banner.count) { index in
-                Circle()
-                    .fill(self.currentIndex == index ? Color("main") : .gray)
-                    .frame(width: 10, height: 10)
+            .padding(.bottom, 12)
+        } else if UIDevice.current.userInterfaceIdiom == .pad {
+            TabView(selection: $currentIndex) {
+                ForEach(0..<viewModel.banner.count, id: \.self) { index in
+                    MovieRemoteImage(urlString: viewModel.banner[currentIndex].payload?.imageUrl?.tablet ?? "place-holder")
+                        .scaledToFill()
+                }
             }
+            .modifier(bannermodiPad(currentIndex: $currentIndex, banner_count: viewModel.banner.count))
+            HStack{
+                ForEach(0..<viewModel.banner.count) { index in
+                    Circle()
+                        .fill(self.currentIndex == index ? Color("main") : .gray)
+                        .frame(width: 10, height: 10)
+                }
+            }
+            .padding(.bottom, 12)
         }
-        .padding(.bottom, 12)
     }
 }
 

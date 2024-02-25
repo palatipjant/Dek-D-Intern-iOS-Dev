@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		642643F82B8BCFDB008A8FAC /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642643F72B8BCFDB008A8FAC /* BannerModel.swift */; };
 		642643FA2B8BDBC8008A8FAC /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642643F92B8BDBC8008A8FAC /* BannerView.swift */; };
+		6434932F2B8BED77004880EC /* BannerSize + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434932E2B8BED77004880EC /* BannerSize + ext.swift */; };
 		6437BA852B86198600FFA22F /* NovelsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6437BA842B86198600FFA22F /* NovelsListViewModel.swift */; };
 		6437BA882B861A1100FFA22F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6437BA872B861A1100FFA22F /* Alert.swift */; };
 		646EFAE32B85CC710094CDE3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646EFAE22B85CC710094CDE3 /* CardView.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		642643F72B8BCFDB008A8FAC /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
 		642643F92B8BDBC8008A8FAC /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		6434932E2B8BED77004880EC /* BannerSize + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BannerSize + ext.swift"; sourceTree = "<group>"; };
 		6437BA842B86198600FFA22F /* NovelsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelsListViewModel.swift; sourceTree = "<group>"; };
 		6437BA872B861A1100FFA22F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		646EFAE22B85CC710094CDE3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6434932D2B8BED5E004880EC /* modifier */ = {
+			isa = PBXGroup;
+			children = (
+				6434932E2B8BED77004880EC /* BannerSize + ext.swift */,
+			);
+			path = modifier;
+			sourceTree = "<group>";
+		};
 		6437BA862B861A0200FFA22F /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 		646EFAE12B85CC5F0094CDE3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6434932D2B8BED5E004880EC /* modifier */,
 				646EFAE22B85CC710094CDE3 /* CardView.swift */,
 				642643F92B8BDBC8008A8FAC /* BannerView.swift */,
 			);
@@ -222,6 +233,7 @@
 				6437BA882B861A1100FFA22F /* Alert.swift in Sources */,
 				642643FA2B8BDBC8008A8FAC /* BannerView.swift in Sources */,
 				646EFAE72B85D22B0094CDE3 /* NovelModel.swift in Sources */,
+				6434932F2B8BED77004880EC /* BannerSize + ext.swift in Sources */,
 				642643F82B8BCFDB008A8FAC /* BannerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

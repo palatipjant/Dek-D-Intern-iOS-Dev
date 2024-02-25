@@ -23,14 +23,16 @@ struct NovelsListView: View{
                         LazyVStack{
                             ForEach(viewModel.novels.indices, id: \.self) { i in
                                 let novel = viewModel.novels[i]
-                                CardView(novel: novel, indic: i+1)
-                                    .id(i)
-                                    .onAppear{
-                                        visibleNovel.insert(i)
-                                    }
-                                    .onDisappear{
-                                        visibleNovel.remove(i)
-                                    }
+                                if ((novel.novel?.title) != nil) {
+                                    CardView(novel: novel, indic: i+1)
+                                        .id(i)
+                                        .onAppear{
+                                            visibleNovel.insert(i)
+                                        }
+                                        .onDisappear{
+                                            visibleNovel.remove(i)
+                                        }
+                                }
                                 if i == 2{
                                     BannerView()
                                 }
