@@ -86,6 +86,7 @@ struct CardView: View {
                     ForEach(novel.novel?.tags ?? ["tag1"], id:\.self) { tag in
                         Text(tag)
                             .padding(.horizontal, 7)
+                            .font(.system(size: 12))
                             .frame(height: 26, alignment: .leading)
                             .foregroundStyle(.gray)
                             .overlay {
@@ -160,3 +161,4 @@ struct RoundedRecCOMP: View {
             .frame(width: 50 ,height: 17)
     }
 }
+
