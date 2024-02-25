@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Dek_D_InternApp: App {
+    
+//    @StateObject var viewModel = NovelsListViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NovelsListView()
+//                .environmentObject(viewModel)
         }
     }
 }
