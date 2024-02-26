@@ -100,13 +100,20 @@ struct CardView: View {
             }
             .frame(height: 26, alignment: .leading)
             .scrollIndicators(.hidden)
+            
+            Text("อัปเดตล่าสุด \(novel.novel?.updatedAt ?? "")")
+                .font(.caption)
+                .foregroundStyle(.gray)
+                .fontWeight(.regular)
+                .padding(.leading, 12)
+            
         }
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(.gray, lineWidth: 1)
-                .frame(maxWidth: .infinity, minHeight: 329)
+                .frame(maxWidth: .infinity, minHeight: 360)
         )
-        .frame(maxWidth: .infinity, minHeight: 329)
+        .frame(maxWidth: .infinity, minHeight: 360)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding(.horizontal, 12)

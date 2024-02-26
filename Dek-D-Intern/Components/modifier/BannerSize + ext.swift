@@ -17,7 +17,7 @@ struct bannermodi: ViewModifier {
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .tabViewStyle(PageTabViewStyle())
             .onAppear{
-                Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { timer in
+                Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
                     currentIndex = (currentIndex + 1) % banner_count
                 }
             }
@@ -35,7 +35,7 @@ struct bannermodiPad: ViewModifier {
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .tabViewStyle(PageTabViewStyle())
             .onAppear{
-                Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { timer in
+                Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
                     currentIndex = (currentIndex + 1) % banner_count
                 }
             }
